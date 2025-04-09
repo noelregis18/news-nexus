@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
 import NewsGrid from "@/components/NewsGrid";
@@ -19,7 +18,6 @@ const Index = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Parse URL query parameters
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const q = queryParams.get('q');
@@ -32,7 +30,6 @@ const Index = () => {
     }
   }, [location.search]);
 
-  // Load initial trending news
   const loadTrendingNews = async () => {
     try {
       setIsLoading(true);
@@ -46,7 +43,6 @@ const Index = () => {
     }
   };
 
-  // Load favorites from local storage
   useEffect(() => {
     setFavorites(getFavorites());
   }, []);
@@ -56,7 +52,6 @@ const Index = () => {
       setIsLoading(true);
       setSearchQuery(query);
       
-      // Update URL with search query
       if (location.search !== `?q=${encodeURIComponent(query)}`) {
         navigate(`/?q=${encodeURIComponent(query)}`);
       }
@@ -79,7 +74,7 @@ const Index = () => {
 
   const handleToggleFavorite = (article: NewsItem) => {
     const isFavorite = toggleFavorite(article);
-    setFavorites(getFavorites()); // Refresh favorites from localStorage
+    setFavorites(getFavorites());
     
     if (isFavorite) {
       toast.success("Added to favorites");
@@ -92,7 +87,6 @@ const Index = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
-        {/* Hero section with search */}
         <section className="py-16 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             <span className="text-red">News</span> Nexus
@@ -103,12 +97,11 @@ const Index = () => {
           <SearchBar onSearch={handleSearch} isLoading={isLoading} />
         </section>
 
-        {/* News results section */}
         <section className="mt-12">
           <h2 className="text-2xl font-semibold mb-6">
             {searchQuery
               ? `Latest News about "${searchQuery}"`
-              : "Trending News (April 2025)"}
+              : "Trending News"}
           </h2>
           
           {isLoading ? (
