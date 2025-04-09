@@ -57,7 +57,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				teal: '#1ABC9C',
+				red: '#ea384c',
 				darkBg: '#121212',
 				lightText: '#E0E0E0',
 			},
@@ -92,6 +92,7 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-dark': 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)',
+				'gradient-red': 'linear-gradient(135deg, #ea384c 0%, #ff7575 100%)',
 			},
 		}
 	},

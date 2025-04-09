@@ -2,71 +2,71 @@
 import { v4 as uuid } from "uuid";
 import type { NewsItem } from "@/components/NewsCard";
 
-// Mock data for news articles
+// Mock data for news articles with 2025 dates
 const mockNews = [
   {
     source: { id: "bbc-news", name: "BBC News" },
-    title: "The Impact of Climate Change on Global Agriculture",
+    title: "Global Efforts to Combat Climate Change Achieving Progress",
     description:
-      "Scientists predict significant changes in agricultural yields due to rising global temperatures and extreme weather events.",
+      "New international agreements are showing positive results in reducing carbon emissions and adapting to climate challenges.",
     url: "https://www.bbc.com/news/climate",
-    urlToImage: "https://picsum.photos/seed/climate/600/400",
-    publishedAt: "2023-04-10T09:30:00Z",
-    content: "Long form content about climate change impacts on agriculture..."
+    urlToImage: "https://picsum.photos/seed/climate2025/600/400",
+    publishedAt: "2025-04-10T09:30:00Z",
+    content: "Long form content about climate change progress in 2025..."
   },
   {
     source: { id: "cnn", name: "CNN" },
-    title: "Tech Giants Announce New AI Regulations",
+    title: "AI Regulation Framework Finally Implemented Globally",
     description:
-      "Major technology companies have agreed on a framework for responsible AI development and usage.",
+      "After years of debate, a comprehensive global AI ethics framework has been adopted by major nations.",
     url: "https://www.cnn.com/tech",
-    urlToImage: "https://picsum.photos/seed/tech/600/400",
-    publishedAt: "2023-04-09T18:15:00Z",
-    content: "Long form content about AI regulations..."
+    urlToImage: "https://picsum.photos/seed/ai2025/600/400",
+    publishedAt: "2025-04-09T18:15:00Z",
+    content: "Long form content about AI regulations in 2025..."
   },
   {
     source: { id: "reuters", name: "Reuters" },
-    title: "Global Markets React to Central Bank Decisions",
+    title: "Digital Currency Revolution Transforms Global Economy",
     description:
-      "Stock markets worldwide respond to the latest interest rate announcements from major central banks.",
+      "Central bank digital currencies are now operational in over 50 countries, reshaping international finance.",
     url: "https://www.reuters.com/markets",
-    urlToImage: "https://picsum.photos/seed/markets/600/400",
-    publishedAt: "2023-04-09T14:45:00Z",
-    content: "Long form content about market reactions..."
+    urlToImage: "https://picsum.photos/seed/finance2025/600/400",
+    publishedAt: "2025-04-08T14:45:00Z",
+    content: "Long form content about digital currencies in 2025..."
   },
   {
     source: { id: "the-guardian", name: "The Guardian" },
-    title: "Healthcare Innovations Addressing Global Challenges",
+    title: "Healthcare Transformed by Personalized Medicine Breakthrough",
     description:
-      "New medical technologies and approaches are helping to solve healthcare access issues in developing regions.",
+      "New advances in genetic medicine are enabling truly customized treatments for a wide range of conditions.",
     url: "https://www.theguardian.com/healthcare",
-    urlToImage: "https://picsum.photos/seed/healthcare/600/400",
-    publishedAt: "2023-04-08T11:20:00Z",
-    content: "Long form content about healthcare innovations..."
+    urlToImage: "https://picsum.photos/seed/health2025/600/400",
+    publishedAt: "2025-04-07T11:20:00Z",
+    content: "Long form content about healthcare innovations in 2025..."
   },
   {
     source: { id: "wired", name: "Wired" },
-    title: "Renewable Energy Revolution: The Path to Carbon Neutrality",
+    title: "Renewable Energy Now Primary Source in Most Developed Nations",
     description:
-      "How renewable energy sources are transforming the global energy landscape and combating climate change.",
+      "Solar and wind technologies have reached cost and efficiency levels that have made fossil fuels obsolete in many regions.",
     url: "https://www.wired.com/energy",
-    urlToImage: "https://picsum.photos/seed/energy/600/400",
-    publishedAt: "2023-04-07T16:10:00Z",
-    content: "Long form content about renewable energy..."
+    urlToImage: "https://picsum.photos/seed/energy2025/600/400",
+    publishedAt: "2025-04-06T16:10:00Z",
+    content: "Long form content about renewable energy dominance in 2025..."
   },
   {
     source: { id: "bbc-sport", name: "BBC Sport" },
-    title: "Olympic Athletes Prepare for Summer Games",
+    title: "Virtual Reality Sports Tournaments Draw Record Viewership",
     description:
-      "Athletes from around the world intensify their training regimes as the Summer Olympics approach.",
-    url: "https://www.bbc.com/sport/olympics",
-    urlToImage: "https://picsum.photos/seed/olympics/600/400",
-    publishedAt: "2023-04-06T08:45:00Z",
-    content: "Long form content about Olympic preparations..."
+      "The convergence of traditional athletics and virtual reality competitions creates new opportunities for global engagement.",
+    url: "https://www.bbc.com/sport/esports",
+    urlToImage: "https://picsum.photos/seed/vrsports2025/600/400",
+    publishedAt: "2025-04-05T08:45:00Z",
+    content: "Long form content about VR sports in 2025..."
   }
 ];
 
-// Generate more mock data
+// Generate more mock data with 2025 dates
 const generateMoreMockNews = (query: string, count: number) => {
   const topics = [
     "technology", 
@@ -86,54 +86,111 @@ const generateMoreMockNews = (query: string, count: number) => {
   }
   
   const results = [];
+  const currentDate = new Date(2025, 3); // April 2025
   
   for (let i = 0; i < count; i++) {
+    // Create a date within April 2025
+    const articleDate = new Date(currentDate);
+    articleDate.setDate(articleDate.getDate() - i % 30);
+    
     results.push({
       source: { 
         id: `source-${i}`, 
         name: ["CNN", "BBC", "Reuters", "Associated Press", "The Guardian", "The New York Times"][Math.floor(Math.random() * 6)]
       },
-      title: `${topicToUse.charAt(0).toUpperCase() + topicToUse.slice(1)} News: ${i + 1} - Latest Developments and Updates`,
-      description: `The latest developments in ${topicToUse} are transforming our understanding and approach to this critical area.`,
+      title: `${topicToUse.charAt(0).toUpperCase() + topicToUse.slice(1)} News: ${i + 1} - Latest 2025 Developments`,
+      description: `The latest 2025 developments in ${topicToUse} are transforming our understanding and approach to this critical area.`,
       url: `https://example.com/news/${topicToUse.toLowerCase().replace(/\s+/g, '-')}/${i + 1}`,
-      urlToImage: `https://picsum.photos/seed/${topicToUse.toLowerCase().replace(/\s+/g, '-')}${i}/600/400`,
-      publishedAt: new Date(Date.now() - i * 86400000).toISOString(),
-      content: `Full article content about ${topicToUse}...`
+      urlToImage: `https://picsum.photos/seed/${topicToUse.toLowerCase().replace(/\s+/g, '-')}${i}2025/600/400`,
+      publishedAt: articleDate.toISOString(),
+      content: `Full 2025 article content about ${topicToUse}...`
     });
   }
   
   return results;
 };
 
+// The real API key implementation
+const API_KEY = "pub_792934d8677ebfdcc4f49568d405fafd88d0d";
+const BASE_URL = "https://newsdata.io/api/1/news";
+
 export const searchNews = async (query: string): Promise<NewsItem[]> => {
-  // Simulating an API call with a delay
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Generate 12 mock news articles based on the query
-      const newsResults = generateMoreMockNews(query, 12);
-      
-      // Add a unique ID to each article (in a real API, articles might already have IDs)
-      const articlesWithIds: NewsItem[] = newsResults.map((article) => ({
-        ...article,
+  try {
+    // Attempt to use the real API
+    const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&q=${encodeURIComponent(query)}&language=en`);
+    const data = await response.json();
+    
+    if (data.status === "success" && data.results && data.results.length > 0) {
+      // Transform the API response to match our NewsItem interface
+      return data.results.map((article: any) => ({
         id: uuid(),
+        title: article.title,
+        description: article.description || "No description available.",
+        url: article.link,
+        urlToImage: article.image_url || `https://picsum.photos/seed/${query.replace(/\s+/g, '')}/600/400`,
+        publishedAt: article.pubDate || new Date().toISOString(),
+        source: {
+          name: article.source_id || "News Source"
+        }
       }));
-      
-      resolve(articlesWithIds);
-    }, 1500); // Simulate network delay
-  });
+    } else {
+      // Fall back to mock data if API call fails or returns no results
+      console.log("API returned no results, using mock data");
+      return fallbackToMockData(query);
+    }
+  } catch (error) {
+    console.error("Error fetching news:", error);
+    return fallbackToMockData(query);
+  }
+};
+
+// Fallback function that returns mock data
+const fallbackToMockData = (query: string): NewsItem[] => {
+  // Generate 12 mock news articles based on the query
+  const newsResults = generateMoreMockNews(query, 12);
+  
+  // Add a unique ID to each article
+  return newsResults.map((article) => ({
+    ...article,
+    id: uuid(),
+  }));
 };
 
 // Initial trending news to display on first load
 export const getTrendingNews = async (): Promise<NewsItem[]> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Use the mock data for trending news
-      const articlesWithIds: NewsItem[] = mockNews.map((article) => ({
-        ...article,
+  try {
+    // Try to get trending news from the API
+    const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&category=top&language=en`);
+    const data = await response.json();
+    
+    if (data.status === "success" && data.results && data.results.length > 0) {
+      // Transform the API response to match our NewsItem interface
+      return data.results.map((article: any) => ({
         id: uuid(),
+        title: article.title,
+        description: article.description || "No description available.",
+        url: article.link,
+        urlToImage: article.image_url || `https://picsum.photos/seed/${article.title.substring(0, 10).replace(/\s+/g, '')}/600/400`,
+        publishedAt: article.pubDate || new Date().toISOString(),
+        source: {
+          name: article.source_id || "News Source"
+        }
       }));
-      
-      resolve(articlesWithIds);
-    }, 1000);
-  });
+    } else {
+      // Fall back to mock data if API call fails or returns no results
+      console.log("API returned no trending results, using mock data");
+      return fallbackToTrendingMockData();
+    }
+  } catch (error) {
+    console.error("Error fetching trending news:", error);
+    return fallbackToTrendingMockData();
+  }
+};
+
+// Fallback function that returns mock trending data
+const fallbackToTrendingMockData = (): NewsItem[] => {
+  return mockNews.map((article) => ({
+    ...article,
+    id: uuid(),
+  }));
 };

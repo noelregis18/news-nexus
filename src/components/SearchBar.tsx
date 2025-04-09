@@ -31,7 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, isLoading }) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for news topics..."
-            className="pr-10 h-12 bg-secondary/80 text-foreground border-0 focus-visible:ring-2 focus-visible:ring-teal"
+            className="pr-10 h-12 bg-secondary/80 text-foreground border-0 focus-visible:ring-2 focus-visible:ring-red"
           />
           <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
             <Search size={20} className="text-muted-foreground" />
@@ -40,7 +40,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, isLoading }) => {
         <Button 
           type="submit" 
           disabled={isLoading}
-          className="h-12 bg-teal hover:bg-teal/80 text-white font-medium px-6"
+          className="h-12 bg-red hover:bg-red/80 text-white font-medium px-6"
         >
           {isLoading ? "Searching..." : "Search"}
         </Button>

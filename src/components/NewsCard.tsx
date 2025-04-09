@@ -73,7 +73,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, isFavorite, onToggleFavori
         >
           {isFavorite ? (
             <>
-              <BookmarkCheck className="mr-1 h-4 w-4 text-teal" /> Saved
+              <BookmarkCheck className="mr-1 h-4 w-4 text-red" /> Saved
             </>
           ) : (
             <>
